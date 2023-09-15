@@ -2,7 +2,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-resource "aws_vpc" "vpc2" {
+resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr_block
   instance_tenancy     = "default"
   enable_dns_hostnames = true
@@ -19,7 +19,7 @@ resource "aws_subnet" "publicsubnetvpc" {
   availability_zone       = "ap-south-1a"
 
   tags = {
-    Name                              = "publicvpc2"
+    Name                              = "publicvpc"
     "kubernetes.io/role/internal-elb" = "1"
     "kubernetes.io/cluster/ed-eks-01" = "shared"
     "kubernetes.io/role/elb"          = "1"
